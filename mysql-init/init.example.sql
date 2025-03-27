@@ -1,0 +1,4 @@
+CREATE DATABASE IF NOT EXISTS bancoExemplo;
+CREATE USER IF NOT EXISTS 'userExemplo'@'%' IDENTIFIED BY 'userExemplo';
+GRANT ALL PRIVILEGES ON bancoExemplo.* TO 'userExemplo'@'%';
+FLUSH PRIVILEGES;
