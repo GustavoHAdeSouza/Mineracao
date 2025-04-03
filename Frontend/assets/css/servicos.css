@@ -1,0 +1,279 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.top-bar {
+    background-color: #003366;
+    color: white;
+    padding: 5px 0;
+}
+
+.top-bar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.top-bar-contact {
+    display: flex;
+    gap: 20px;
+}
+
+.top-bar-contact a {
+    color: white;
+    text-decoration: none;
+}
+
+.top-bar-social {
+    display: flex;
+    gap: 10px;
+}
+
+header {
+    background-color: white;
+    padding: 10px 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 150px;
+    height: 60px;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #003366;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+nav ul li a.active {
+    color: #0099cc;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #003366;
+    cursor: pointer;
+}
+
+.page-title {
+    background-color: #003366;
+    color: white;
+    padding: 40px 0;
+}
+
+.services-section {
+    padding: 50px 0;
+}
+
+.services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+.service-card {
+    width: calc(33.333% - 30px);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+.service-image {
+    height: 250px;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-content {
+    padding: 20px;
+}
+
+.service-title {
+    font-size: 22px;
+    color: #003366;
+    margin-bottom: 15px;
+}
+
+.service-description {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.service-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.service-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #0099cc;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.service-btn {
+    background-color: #90ee90;
+    color: #003366;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.cta-section {
+    background-color: #003366;
+    color: white;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.cta-description {
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.cta-btn {
+    background-color: #90ee90;
+    color: #003366;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.footer {
+    background-color: #003366;
+    color: white;
+    padding: 50px 0;
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-column {
+    width: 24%;
+}
+
+.footer-column h3 {
+    color: #90ee90;
+    margin-bottom: 20px;
+}
+
+.footer-column p, .footer-column a {
+    color: white;
+    margin-bottom: 10px;
+    display: block;
+    text-decoration: none;
+}
+
+.bottom-footer {
+    background-color: #002244;
+    color: white;
+    padding: 15px 0;
+    font-size: 12px;
+}
+
+.bottom-footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom-footer a {
+    color: #90ee90;
+    text-decoration: none;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .service-card {
+        width: calc(50% - 30px);
+    }
+}
+
+@media (max-width: 768px) {
+    .service-card {
+        width: 100%;
+    }
+    
+    .top-bar-contact {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    nav ul {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .cta-title {
+        font-size: 22px;
+    }
+    
+    .bottom-footer-content {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
