@@ -2,7 +2,7 @@
 FROM mysql:8.0
 
 # Copia o diretório de inicialização para dentro do contêiner
-COPY mysql-init/init.sql /docker-entrypoint-initdb.d/
+COPY Database/init.sql /docker-entrypoint-initdb.d/
 
 # Expondo a porta 3306 do MySQL
 EXPOSE 3306
