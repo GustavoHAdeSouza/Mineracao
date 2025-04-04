@@ -17,8 +17,13 @@ RUN a2enmod rewrite
 # Define o diretório de trabalho
 WORKDIR /var/www/html
 
-# Copia os arquivos para dentro do contêiner
-COPY ./www /var/www/html
+# Copia os arquivos do backend (PHP) para dentro do contêiner
+COPY Backend/ /var/www/html/Backend/
+
+# Copia os arquivos do frontend (HTML) para dentro do contêiner
+COPY Frontend/ /var/www/html/Frontend/
+
+COPY index.html /var/www/html/index.html
 
 # Expondo a porta do Apache (a porta real será definida pelo `docker-compose`)
 EXPOSE 80
