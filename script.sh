@@ -2,20 +2,32 @@
 
 # Verifica se um argumento foi passado
 if [ -z "$1" ]; then
-  echo "⚠️  Uso: ./script.sh [iniciar|encerrar]"
+  echo "⚠️  Uso: ./script.sh [criar|deletar|iniciar|parar]"
   exit 1
 fi
 
-#Caso estiver no windows tire os "sudo" que estão nos comandos desse arquivo
+# Caso esteja no Windows, remova os "sudo" dos comandos abaixo
 
 # Executa a ação com base no argumento
-if [ "$1" = "iniciar" ]; then
-  echo "🚀 Iniciando containers..."
-  sudo docker-compose up --build -d
-elif [ "$1" = "encerrar" ]; then
-  echo "🛑 Encerrando containers..."
-  sudo docker-compose down
-else
-  echo "❌ Opção inválida. Use: iniciar ou encerrar"
-  exit 1
-fi
+case "$1" in
+  criar)
+    echo "🚀 Iniciando containers com build..."
+    sudo docker-compose up --build -d
+    ;;
+  deletar)
+    echo "🛑 Encerrando containers e removendo..."
+    sudo docker-compose down
+    ;;
+  iniciar)
+    echo "▶️ Iniciando containers existentes..."
+    sudo docker-compose start
+    ;;
+  parar)
+    echo "⏹️ Parando containers sem remover..."
+    sudo docker-compose stop
+    ;;
+  *)
+    echo "❌ Opção inválida. Use: iniciar, encerrar, start ou stop"
+    exit 1
+    ;;
+esac
