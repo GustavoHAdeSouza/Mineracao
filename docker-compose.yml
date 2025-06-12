@@ -1,28 +1,41 @@
 version: '3.9'
 
 services:
+  # Serviço da aplicação PHP
   php:
     build:
       context: .
       dockerfile: Dockerfile-php
     container_name: php_app
+    restart: always
     env_file:
-    - .env  # Carrega as variáveis de ambiente do .env
-  
+      - .env
     ports:
       - "${APACHE_PORT}:80"
+    volumes:
+      - ./Backend:/var/www/html/Backend
+      - ./Frontend:/var/www/html/Frontend
+      - ./login-admin.php:/var/www/html/login-admin.php
+      - ./index-admin.php:/var/www/html/index-admin.php
+      - ./logout.php:/var/www/html/logout.php
     depends_on:
       mysql:
-        condition: service_healthy  # Aguarda o MySQL estar pronto
-        
+        condition: service_healthy
+    networks:
+      - app-net
+
+  # Serviço do banco de dados MySQL
   mysql:
     build:
       context: .
       dockerfile: Dockerfile-mysql
     container_name: mysql_db
     restart: always
-    env_file:
-      - .env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - "${MYSQL_PORT}:3306"
     volumes:
@@ -32,7 +45,36 @@ services:
       interval: 10s
       retries: 5
       start_period: 20s
+    networks:
+      - app-net
 
+  # Serviço do Keycloak
+  keycloak:
+    image: quay.io/keycloak/keycloak:24.0.5
+    container_name: keycloak
+    restart: always
+    ports:
+      - "${KEYCLOAK_PORT}:8080"
+    environment:
+      KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN}
+      KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
+      KC_HOSTNAME_URL: http://localhost:${KEYCLOAK_PORT}
+      KC_HTTP_ENABLED: 'true'
+    command: start-dev
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:${KEYCLOAK_PORT}/health/ready"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+    networks:
+      - app-net
 
+# Definição do volume para persistência do banco de dados
 volumes:
   db_data:
+
+# Definição da rede para comunicação entre os contêineres
+networks:
+  app-net:
+    driver: bridge

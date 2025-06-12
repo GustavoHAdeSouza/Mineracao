@@ -1,32 +1,63 @@
-# Usa a imagem oficial do PHP 8.4.4 com Apache
-FROM php:8.4.4-apache
+# =================================================================
+# ESTÁGIO 1: "Builder" - Prepara as dependências
+# (Esta parte está quase perfeita, apenas uma pequena mudança)
+# =================================================================
+FROM php:8.2.12-cli AS builder
 
-# Instala extensões do PHP necessárias
+# Instala dependências do sistema e do Composer
 RUN apt-get update && apt-get install -y \
     libpng-dev \
     libjpeg-dev \
     libfreetype6-dev \
     zip \
     unzip \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && rm -rf /var/lib/apt/lists/*
+
+# Instala as extensões PHP
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd mysqli pdo pdo_mysql
+
+# Instala o Composer da forma mais simples
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Define o diretório de trabalho
+WORKDIR /app
+
+# Copia apenas os arquivos do composer primeiro para aproveitar o cache do Docker
+COPY Backend/composer.json Backend/composer.lock ./
+RUN composer install --no-dev --no-interaction --optimize-autoloader
+
+# Copia o resto do código da aplicação
+# IMPORTANTE: Copia tudo para o diretório /app
+COPY . .
+
+# =================================================================
+# ESTÁGIO 2: "Final" - A imagem de produção (muito mais leve)
+# =================================================================
+FROM php:8.2.12-apache
 
 # Habilita o módulo de reescrita do Apache
 RUN a2enmod rewrite
 
+# Instala APENAS as dependências de RUNTIME, que são menores que as -dev
+# Muitas já estão na imagem base, mas é bom garantir.
+RUN apt-get update && apt-get install -y libpng16-16 libjpeg62-turbo && rm -rf /var/lib/apt/lists/*
+
+# --- CÓPIA MÁGICA: Copia as extensões PHP já compiladas do builder ---
+COPY --from=builder /usr/local/etc/php/conf.d/ /usr/local/etc/php/conf.d/
+COPY --from=builder /usr/local/lib/php/extensions/ /usr/local/lib/php/extensions/
+
 # Define o diretório de trabalho
 WORKDIR /var/www/html
 
-# Copia os arquivos do backend (PHP) para dentro do contêiner
-COPY Backend/ /var/www/html/Backend/
+# --- Cópia dos arquivos da aplicação ---
+# Copia TUDO que foi preparado no builder de uma só vez
+COPY --from=builder /app/ .
 
-# Copia os arquivos do frontend (HTML) para dentro do contêiner
-COPY Frontend/ /var/www/html/Frontend/
+# --- Ajuste de Permissões ---
+# Garante que o Apache tenha permissão para ler/escrever nos arquivos
+RUN chown -R www-data:www-data /var/www/html
 
-COPY index.html /var/www/html/index.html
-
-# Expondo a porta do Apache (a porta real será definida pelo `docker-compose`)
+# EXPOSE e CMD continuam os mesmos
 EXPOSE 80
-
-# Comando de inicialização do Apache
 CMD ["apache2-foreground"]
