@@ -31,12 +31,11 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="../../index.html">Home</a></li>
-                        <li><a href="./sobre.html" class="active">Sobre nós</a></li>
-                        <li><a href="./servicos.html">Serviços</a></li>
-                        <li><a href="./documentacao.html">Documentação</a></li>
-                        <li><a href="./noticias.html">Notícias</a></li>
-                        <li><a href="./contatos.html">Contatos</a></li>
+                        <li><a href="../../index.php">Home</a></li>
+                        <li><a href="./sobre.php" class="active">Sobre nós</a></li>
+                        <li><a href="./servicos.php">Serviços</a></li>
+                        <li><a href="./noticias.php">Notícias</a></li>
+                        <li><a href="./contatos.php">Contatos</a></li>
                     </ul>
                     <button class="mobile-menu-btn">≡</button>
                 </nav>

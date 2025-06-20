@@ -1,0 +1,4 @@
+CREATE DATABASE IF NOT EXISTS keycloak_db;
+CREATE USER IF NOT EXISTS 'keycloak'@'%' IDENTIFIED BY 'keycloakpass';
+GRANT ALL PRIVILEGES ON keycloak_db.* TO 'keycloak'@'%';
+FLUSH PRIVILEGES;

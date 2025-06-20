@@ -1,33 +1,37 @@
 #!/bin/bash
 
-# Verifica se um argumento foi passado
+# Detecta se precisa do sudo (se não for root)
+SUDO=""
+if [ "$(id -u)" -ne 0 ]; then
+  SUDO="sudo"
+fi
+
+# Verifica argumento
 if [ -z "$1" ]; then
   echo "⚠️  Uso: ./script.sh [criar|deletar|iniciar|parar]"
   exit 1
 fi
 
-# Caso esteja no Windows, remova os "sudo" dos comandos abaixo
-
-# Executa a ação com base no argumento
+# Executa a ação
 case "$1" in
   criar)
     echo "🚀 Iniciando containers com build..."
-    sudo docker-compose up --build -d
+    $SUDO docker-compose up --build -d
     ;;
   deletar)
     echo "🛑 Encerrando containers e removendo..."
-    sudo docker-compose down
+    $SUDO docker-compose down
     ;;
   iniciar)
     echo "▶️ Iniciando containers existentes..."
-    sudo docker-compose start
+    $SUDO docker-compose start
     ;;
   parar)
     echo "⏹️ Parando containers sem remover..."
-    sudo docker-compose stop
+    $SUDO docker-compose stop
     ;;
   *)
-    echo "❌ Opção inválida. Use: iniciar, encerrar, start ou stop"
+    echo "❌ Opção inválida. Use: criar, deletar, iniciar ou parar"
     exit 1
     ;;
 esac

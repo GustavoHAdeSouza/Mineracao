@@ -1,7 +1,9 @@
 version: '3.9'
 
 services:
+  # ============================
   # Serviço da aplicação PHP
+  # ============================
   php:
     build:
       context: .
@@ -17,14 +19,16 @@ services:
       - ./Frontend:/var/www/html/Frontend
       - ./login-admin.php:/var/www/html/login-admin.php
       - ./index-admin.php:/var/www/html/index-admin.php
-      - ./logout.php:/var/www/html/logout.php
+      - ./index.php:/var/www/html/index.php
     depends_on:
       mysql:
         condition: service_healthy
     networks:
       - app-net
 
+  # ============================
   # Serviço do banco de dados MySQL
+  # ============================
   mysql:
     build:
       context: .
@@ -40,6 +44,7 @@ services:
       - "${MYSQL_PORT}:3306"
     volumes:
       - db_data:/var/lib/mysql
+      - ./Database:/docker-entrypoint-initdb.d
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "--password=${MYSQL_ROOT_PASSWORD}"]
       interval: 10s
@@ -48,7 +53,9 @@ services:
     networks:
       - app-net
 
+  # ============================
   # Serviço do Keycloak
+  # ============================
   keycloak:
     image: quay.io/keycloak/keycloak:24.0.5
     container_name: keycloak
@@ -60,6 +67,16 @@ services:
       KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
       KC_HOSTNAME_URL: http://localhost:${KEYCLOAK_PORT}
       KC_HTTP_ENABLED: 'true'
+
+      # Configuração do banco
+      KC_DB: mysql
+      KC_DB_URL_HOST: mysql_db
+      KC_DB_URL_DATABASE: ${KEYCLOAK_DB_DATABASE}
+      KC_DB_USERNAME: ${KEYCLOAK_DB_USER}
+      KC_DB_PASSWORD: ${KEYCLOAK_DB_PASSWORD}
+    depends_on:
+      mysql:
+        condition: service_healthy
     command: start-dev
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:${KEYCLOAK_PORT}/health/ready"]
@@ -70,11 +87,15 @@ services:
     networks:
       - app-net
 
-# Definição do volume para persistência do banco de dados
+# ============================
+# Volumes para persistência
+# ============================
 volumes:
   db_data:
 
-# Definição da rede para comunicação entre os contêineres
+# ============================
+# Rede interna
+# ============================
 networks:
   app-net:
     driver: bridge

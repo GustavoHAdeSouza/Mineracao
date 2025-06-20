@@ -15,7 +15,7 @@
     background-color: #003366;
     color: white;
     padding: 5px 0;
-}
+}/* 🔥 GRID DE NOTÍCIAS E PAGINAÇÃO 🔥 */
 
 .top-bar-content {
     display: flex;
@@ -194,7 +194,7 @@ table tr:hover {
     border-radius: 4px;
 }
 
-.modal {
+.modal {/* 🔥 GRID DE NOTÍCIAS E PAGINAÇÃO 🔥 */
     display: none;
     position: fixed;
     z-index: 1000;
@@ -399,4 +399,23 @@ table tr:hover {
         flex-direction: column;
         gap: 5px;
     }
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.pagination-btn {
+    background-color: #003366;
+    color: white;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.pagination-btn.active {
+    background-color: #0099cc;
 }

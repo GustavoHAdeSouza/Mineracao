@@ -108,6 +108,7 @@ nav ul li a.active {
     overflow: hidden;
     margin-bottom: 30px;
     transition: transform 0.3s ease;
+    background-color: white;
 }
 
 .news-card:hover {
@@ -116,10 +117,30 @@ nav ul li a.active {
 
 .news-image {
     height: 250px;
+    width: 100%;
     background-color: #f0f0f0;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+}
+
+.news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.news-image .no-image {
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+    color: #999;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .news-content {
@@ -152,6 +173,10 @@ nav ul li a.active {
     font-weight: bold;
 }
 
+.news-link:hover {
+    text-decoration: underline;
+}
+
 .pagination {
     display: flex;
     justify-content: center;
@@ -166,6 +191,13 @@ nav ul li a.active {
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.pagination-btn:hover {
+    background-color: #002244;
 }
 
 .pagination-btn.active {
@@ -216,7 +248,7 @@ nav ul li a.active {
     text-decoration: none;
 }
 
-/* Responsividade */
+/* 🔧 Responsividade */
 @media (max-width: 1024px) {
     .news-card {
         width: calc(50% - 30px);
@@ -246,4 +278,51 @@ nav ul li a.active {
         gap: 10px;
         text-align: center;
     }
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.modal-content p {
+    word-wrap: break-word;
+    white-space: pre-wrap; /* Mantém quebras de linha e espaços */
+    line-height: 1.6;
+    max-height: 70vh; /* Limita a altura do modal */
+    overflow-y: auto; /* Adiciona rolagem se ultrapassar */
+}
+
+
+.close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: black;
 }

@@ -70,7 +70,7 @@ else {
         $_SESSION['user'] = $userData;
 
         // Redireciona o usuário para a página principal do sistema do admin.
-        header('Location: index-admin.php');
+        header('Location: /Frontend/admin/produtos/produtos-tab.php');
         exit;
 
     } catch (\League\OAuth2\Client\Provider\Exception\IdentityProviderException $e) {

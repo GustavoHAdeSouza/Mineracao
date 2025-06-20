@@ -11,16 +11,16 @@ $perPage = 6;
 // Calcula o offset
 $offset = ($page - 1) * $perPage;
 
-// Conta total de produtos
-$totalStmt = $pdo->query("SELECT COUNT(*) FROM produtos");
-$totalProdutos = $totalStmt->fetchColumn();
-$totalPaginas = ceil($totalProdutos / $perPage);
+// Conta total de serviços
+$totalStmt = $pdo->query("SELECT COUNT(*) FROM servicos");
+$totalServicos = $totalStmt->fetchColumn();
+$totalPaginas = ceil($totalServicos / $perPage);
 
-// Busca produtos da página atual
-$stmt = $pdo->prepare("SELECT * FROM produtos ORDER BY data_criacao ASC LIMIT :limit OFFSET :offset");
+// Busca serviços da página atual
+$stmt = $pdo->prepare("SELECT * FROM servicos ORDER BY data_criacao ASC LIMIT :limit OFFSET :offset");
 $stmt->bindValue(':limit', $perPage, PDO::PARAM_INT);
 $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
 $stmt->execute();
 
-$produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$servicos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>

@@ -32,12 +32,11 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="../../index.html">Home</a></li>
-                        <li><a href="./sobre.html">Sobre nós</a></li>
-                        <li><a href="./servicos.html">Serviços</a></li>
-                        <li><a href="./documentacao.html">Documentação</a></li>
-                        <li><a href="./noticias.html">Notícias</a></li>
-                        <li><a href="./contatos.html" class="active">Contatos</a></li>
+                        <li><a href="../../index.php">Home</a></li>
+                        <li><a href="./sobre.php">Sobre nós</a></li>
+                        <li><a href="./servicos.php">Serviços</a></li>
+                        <li><a href="./noticias.php">Notícias</a></li>
+                        <li><a href="./contatos.php" class="active">Contatos</a></li>
                     </ul>
                     <button class="mobile-menu-btn">≡</button>
                 </nav>
@@ -72,34 +71,36 @@
                     </div>
                 </div>
                 
-                <div class="contact-form">
-                    <h2>Envie uma Mensagem</h2>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Nome Completo</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Telefone</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Sua Mensagem</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <button type="submit" class="submit-btn">Enviar Mensagem</button>
-                        </div>
-                    </form>
-                </div>
+            <div class="contact-form">
+                <h2>Envie uma Mensagem</h2>
+
+                <form action="../../Backend/php/enviar-email.php" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telefone</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Sua Mensagem</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                    </div>
+                </form>
+            </div>
+
             </div>
         </div>
     </section>

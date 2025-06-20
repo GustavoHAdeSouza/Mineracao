@@ -1,38 +1,77 @@
 <?php
-
-// Pega a variável de ambiente. Se não existir, usa 'local' como padrão. É mais seguro.
-$env = getenv("KEYCLOAK_ENV") ?? 'local';
+$env = 'local';
 
 $keycloakAuthClientArray = [];
 $realm = 'mineracao';
 
-// URLs públicas (Navegador do usuário)
-$publicBase   = "http://localhost:8080/realms/{$realm}/protocol/openid-connect";
-
-// As URLs de comunicação interna devem usar o nome do serviço Docker ('keycloak')
-$keycloakInternalUrl = "http://keycloak:8080/realms/{$realm}/protocol/openid-connect";
-
-// A URL de redirecionamento usa o endereço público (localhost na sua máquina)
-$redirectUri = "http://localhost:5555/login-admin.php";
-
+// URLs públicas e internas padrão — podem variar por ambiente
 switch ($env) {
     case "local":
+        $publicBase   = "http://localhost:8080/realms/{$realm}/protocol/openid-connect";
+        $keycloakInternalUrl = "http://keycloak:8080/realms/{$realm}/protocol/openid-connect";
+        $redirectUri = "http://localhost:5555/login-admin.php";
+
         $keycloakAuthClientArray = [
-            "kcClientId"                => 'mineracao',
-            "kcClientSecret"            => 'fwgKutrKQzoEwvgywPfXPNo4eo238SwR',
-            "kcRedirectUri"             => $redirectUri,
-            // URLs para comunicação de servidor para servidor (PHP -> Keycloak)
-            "urlAuthorize"              => "{$publicBase}/auth",
-            "urlAccessToken"            => "{$keycloakInternalUrl}/token",
-            "urlResourceOwnerDetails"   => "{$keycloakInternalUrl}/userinfo",
-            // URL para o navegador do usuário (Logout)
-            "kcUrlLogout"               => "{$publicBase}/logout"
+            "kcClientId"              => 'mineracao',
+            "kcClientSecret"          => 'H8zRaFJyMQL6sczBwco46kGh91y2GY18',
+            "kcRedirectUri"           => $redirectUri,
+            "urlAuthorize"            => "{$publicBase}/auth",
+            "urlAccessToken"          => "{$keycloakInternalUrl}/token",
+            "urlResourceOwnerDetails" => "{$keycloakInternalUrl}/userinfo",
+            "kcUrlLogout"             => "{$publicBase}/logout?post_logout_redirect_uri=" . urlencode($redirectUri) . "&client_id=mineracao"
         ];
         break;
-    
+
+    case "dev":
+        $publicBase   = "https://dev-keycloak.exemplo.com/realms/{$realm}/protocol/openid-connect";
+        $keycloakInternalUrl = "https://dev-keycloak.internal/realms/{$realm}/protocol/openid-connect";
+        $redirectUri = "https://dev.seusite.com/login-admin.php";
+
+        $keycloakAuthClientArray = [
+            "kcClientId"              => 'mineracao-dev',
+            "kcClientSecret"          => 'dev-secret-aqui',
+            "kcRedirectUri"           => $redirectUri,
+            "urlAuthorize"            => "{$publicBase}/auth",
+            "urlAccessToken"          => "{$keycloakInternalUrl}/token",
+            "urlResourceOwnerDetails" => "{$keycloakInternalUrl}/userinfo",
+            "kcUrlLogout"             => "{$publicBase}/logout?post_logout_redirect_uri=" . urlencode($redirectUri) . "&client_id=mineracao-dev"
+        ];
+        break;
+
+    case "hom":
+        $publicBase   = "https://hom-keycloak.exemplo.com/realms/{$realm}/protocol/openid-connect";
+        $keycloakInternalUrl = "https://hom-keycloak.internal/realms/{$realm}/protocol/openid-connect";
+        $redirectUri = "https://hom.seusite.com/login-admin.php";
+
+        $keycloakAuthClientArray = [
+            "kcClientId"              => 'mineracao-hom',
+            "kcClientSecret"          => 'hom-secret-aqui',
+            "kcRedirectUri"           => $redirectUri,
+            "urlAuthorize"            => "{$publicBase}/auth",
+            "urlAccessToken"          => "{$keycloakInternalUrl}/token",
+            "urlResourceOwnerDetails" => "{$keycloakInternalUrl}/userinfo",
+            "kcUrlLogout"             => "{$publicBase}/logout?post_logout_redirect_uri=" . urlencode($redirectUri) . "&client_id=mineracao-hom"
+        ];
+        break;
+
+    case "prod":
+        $publicBase   = "https://keycloak.seusite.com/realms/{$realm}/protocol/openid-connect";
+        $keycloakInternalUrl = "https://keycloak.internal/realms/{$realm}/protocol/openid-connect";
+        $redirectUri = "https://seusite.com/login-admin.php";
+
+        $keycloakAuthClientArray = [
+            "kcClientId"              => 'mineracao-prod',
+            "kcClientSecret"          => 'prod-secret-aqui',
+            "kcRedirectUri"           => $redirectUri,
+            "urlAuthorize"            => "{$publicBase}/auth",
+            "urlAccessToken"          => "{$keycloakInternalUrl}/token",
+            "urlResourceOwnerDetails" => "{$keycloakInternalUrl}/userinfo",
+            "kcUrlLogout"             => "{$publicBase}/logout?post_logout_redirect_uri=" . urlencode($redirectUri) . "&client_id=mineracao-prod"
+        ];
+        break;
+
     default:
         header('Content-Type: text/plain', true, 500);
         exit("Erro: A variável de ambiente 'KEYCLOAK_ENV' ('" . htmlspecialchars($env) . "') é inválida.");
 }
-
 ?>

@@ -112,84 +112,97 @@ nav ul li a {
     font-weight: bold;
 }
 
-.services {
+
+.products-section {
     padding: 50px 0;
 }
 
-.services h2 {
-    margin-bottom: 30px;
-}
-
-.services-grid {
+.products-grid {
     display: flex;
-    gap: 20px;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
-.service-card {
-    width: 32%;
+.product-card {
+    width: calc(33.333% - 30px);
     border: 1px solid #e0e0e0;
-    border-radius: 5px;
+    border-radius: 8px;
     overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
 }
 
-.service-image {
-    height: 200px;
+.product-card:hover {
+    transform: translateY(-10px);
+}
+
+.product-image {
+    height: 250px;
     background-color: #f0f0f0;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.service-content {
-    padding: 15px;
+.product-image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
-.service-title {
+.product-image .no-image {
+    height: 100%;
+    width: 100%;
+    background-color: #f0f0f0;
+    color: #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+
+.product-content {
+    padding: 20px;
+}
+
+.product-title {
+    font-size: 22px;
+    color: #003366;
+    margin-bottom: 15px;
+}
+
+.product-description {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.product-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-icon {
+    width: 50px;
+    height: 50px;
     background-color: #0099cc;
     color: white;
-    padding: 8px 15px;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.news {
-    padding: 50px 0;
-    background-color: #f9f9f9;
-}
-
-.news h2 {
-    margin-bottom: 30px;
-}
-
-.news-grid {
-    display: flex;
-    gap: 20px;
-    justify-content: space-between;
-}
-
-.news-card {
-    width: 24%;
-    border: 1px solid #e0e0e0;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.news-image {
-    height: 150px;
-    background-color: #f0f0f0;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 50%;
 }
 
-.news-content {
-    padding: 15px;
-}
-
-.news-title {
+.product-btn {
+    background-color: #90ee90;
+    color: #003366;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 20px;
     font-weight: bold;
-    margin-bottom: 10px;
 }
 
 .footer {
@@ -256,11 +269,11 @@ nav ul li a {
 
 /* Responsividade */
 @media (max-width: 992px) {
-    .services-grid {
+    .produtos-grid {
         flex-wrap: wrap;
     }
     
-    .service-card {
+    .produto-card {
         width: 48%;
         margin-bottom: 20px;
     }
@@ -302,7 +315,7 @@ nav ul li a {
         width: 100%;
     }
     
-    .service-card, .news-card, .footer-column {
+    .produto-card, .news-card, .footer-column {
         width: 100%;
     }
     
@@ -311,4 +324,79 @@ nav ul li a {
         gap: 10px;
         text-align: center;
     }
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 10px;
+}
+
+.pagination-btn {
+    background-color: #003366;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.pagination-btn:hover {
+    background-color: #002244;
+}
+
+.pagination-btn.active {
+    background-color: #0099cc;
+}
+
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.modal-content p {
+    word-wrap: break-word;
+    white-space: pre-wrap; /* Mantém quebras de linha e espaços */
+    line-height: 1.6;
+    max-height: 70vh; /* Limita a altura do modal */
+    overflow-y: auto; /* Adiciona rolagem se ultrapassar */
+}
+
+
+.close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: black;
 }
