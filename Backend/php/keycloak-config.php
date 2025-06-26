@@ -2,7 +2,9 @@
 $env = 'local';
 
 $keycloakAuthClientArray = [];
-$realm = 'mineracao';
+$realm = getenv('KEYCLOAK_REALM');
+$clientId = getenv('KEYCLOAK_CLIENT_ID');
+$clientSecret = getenv('KEYCLOAK_CLIENT_SECRET');
 
 // URLs públicas e internas padrão — podem variar por ambiente
 switch ($env) {
@@ -12,13 +14,13 @@ switch ($env) {
         $redirectUri = "http://localhost:5555/login-admin.php";
 
         $keycloakAuthClientArray = [
-            "kcClientId"              => 'mineracao',
-            "kcClientSecret"          => 'H8zRaFJyMQL6sczBwco46kGh91y2GY18',
+            "kcClientId"              => "$realm",
+            "kcClientSecret"          => "$clientSecret",
             "kcRedirectUri"           => $redirectUri,
             "urlAuthorize"            => "{$publicBase}/auth",
             "urlAccessToken"          => "{$keycloakInternalUrl}/token",
             "urlResourceOwnerDetails" => "{$keycloakInternalUrl}/userinfo",
-            "kcUrlLogout"             => "{$publicBase}/logout?post_logout_redirect_uri=" . urlencode($redirectUri) . "&client_id=mineracao"
+            "kcUrlLogout"             => "{$publicBase}/logout?post_logout_redirect_uri=" . urlencode($redirectUri) . "&client_id=$clientId"
         ];
         break;
 
