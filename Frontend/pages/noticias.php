@@ -9,33 +9,16 @@ require_once __DIR__ . '../../../Backend/php/noticias.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notícias - Lorem Ipsum Areias</title>
+    <title>Notícias - Mineração Areias</title>
     <link rel="stylesheet" href="../assets/css/noticias.css">
 </head>
 <body>
     <script src="../assets/js/noticias.js"></script>
-    <div class="top-bar">
-        <div class="container">
-            <div class="top-bar-content">
-                <div class="top-bar-contact">
-                    <span>HORÁRIO DE ATENDIMENTO</span>
-                    <a href="tel:+551112345678">(11) 1234-5678</a>
-                    <a href="mailto:contato@loremipsum.com">contato@loremipsum.com</a>
-                </div>
-                <div class="top-bar-social">
-                    <a href="#">FB</a>
-                    <a href="#">IG</a>
-                </div>
-            </div>
-        </div>
-    </div>
     
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">
-                    [LOGO AQUI]
-                </div>
+              <img class="logo" src="../assets/Repositorio_de_Fotos/logo.png">
                 <nav>
                     <ul>
                         <li><a href="../../index.php">Home</a></li>
@@ -113,16 +96,14 @@ require_once __DIR__ . '../../../Backend/php/noticias.php';
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-column">
-                    <div class="logo">
-                        [LOGO AQUI]
-                    </div>
+                <img class="logo" src="../assets/Repositorio_de_Fotos/logo.png">
                 </div>
                 <div class="footer-column">
                     <h3>Matriz</h3>
                     <p>Av. Lorem Ipsum, n° 123</p>
                     <p>Bairro Lorem - Cidade Ipsum - SP</p>
                     <p>CEP 12345-678</p>
-                    <p>contato@loremipsum.com</p>
+                    <p>mineracaophp@gmail.com</p>
                     <p>(11) 1234-5678</p>
                 </div>
                 <div class="footer-column">

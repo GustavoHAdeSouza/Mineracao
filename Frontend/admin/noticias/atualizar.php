@@ -29,26 +29,40 @@ try {
 <head>
     <meta charset="UTF-8">
     <title>Atualizar Notícia</title>
+    <link rel="stylesheet" href="../../assets/css/admin.css">
 </head>
 <body>
-    <h1>Atualizar Notícia</h1>
 
-    <form action="/Backend/php/admin/noticias/atualizar.php" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="id" value="<?= htmlspecialchars($noticia['id']) ?>">
+    <div class="admin-header">
+        <div class="container"><h1 class="admin-title">Painel Administrativo</h1><h2>Gestão de Conteúdo</h2></div>
+    </div>
+    <div class="container">
 
-        <label for="titulo">Título:</label><br>
-        <input type="text" id="titulo" name="titulo" value="<?= htmlspecialchars($noticia['titulo']) ?>" required><br><br>
+        <div class="admin-panel">
+            <h1>Atualizar Notícia</h1>
+            <br>
+            <form action="/Backend/php/admin/noticias/atualizar.php" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<?= htmlspecialchars($noticia['id']) ?>">
+                <div class="form-group">
+                    <label for="titulo">Título:</label>
+                    <input type="text" id="titulo" name="titulo" class="form-control" value="<?= htmlspecialchars($noticia['titulo']) ?>" required>
+                </div>
+                <div class="form-group">
+                    <label for="conteudo">Conteúdo:</label>
+                    <textarea id="conteudo" name="conteudo" class="form-control" required><?= htmlspecialchars($noticia['conteudo']) ?></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="imagem">Imagem:</label>
+                    <input type="file" name="imagem" accept="image/*" class="form-control">
+                </div>
+                <br>
+                <input type="submit" value="Atualizar" class="btn btn-primary">
+            </form>
+            <br>
+            <a href="noticias-tab.php" class="btn btn-secondary">Voltar</a>
+        </div>
+    </div>
 
-        <label for="conteudo">Conteúdo:</label><br>
-        <textarea id="conteudo" name="conteudo" rows="5" cols="40" required><?= htmlspecialchars($noticia['conteudo']) ?></textarea><br><br>
-
-        <label for="imagem">Imagem:</label><br>
-        <input type="file" name="imagem" accept="image/*"><br><br>
-
-        <input type="submit" value="Atualizar">
-    </form>
-
-    <br>
-    <a href="index.php">Voltar</a>
 </body>
 </html>
+

@@ -29,26 +29,39 @@ try {
 <head>
     <meta charset="UTF-8">
     <title>Atualizar Produto</title>
+    <link rel="stylesheet" href="../../assets/css/admin.css">
 </head>
 <body>
-    <h1>Atualizar Produto</h1>
 
-    <form action="/Backend/php/admin/produtos/atualizar.php" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="id" value="<?= htmlspecialchars($produto['id']) ?>">
+    <div class="admin-header">
+        <div class="container"><h1 class="admin-title">Painel Administrativo</h1><h2>Gestão de Conteúdo</h2></div>
+    </div>
+    <div class="container">
 
-        <label for="nome">Nome:</label><br>
-        <input type="text" id="nome" name="nome" value="<?= htmlspecialchars($produto['nome']) ?>" required><br><br>
+        <div class="admin-panel">
+            <h1>Atualizar Produto</h1>
+            <br>
+            <form action="/Backend/php/admin/produtos/atualizar.php" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<?= htmlspecialchars($produto['id']) ?>">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" class="form-control" value="<?= htmlspecialchars($produto['nome']) ?>" required>
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição:</label>
+                    <textarea id="descricao" name="descricao" class="form-control" required><?= htmlspecialchars($produto['descricao']) ?></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="imagem">Imagem:</label>
+                    <input type="file" name="imagem" accept="image/*" class="form-control">
+                </div>
+                <br>
+                <input type="submit" value="Atualizar" class="btn btn-primary">
+            </form>
+            <br>
+            <a href="produtos-tab.php" class="btn btn-secondary">Voltar</a>
+        </div>
+    </div>
 
-        <label for="descricao">Descrição:</label><br>
-        <textarea id="descricao" name="descricao" rows="5" cols="40" required><?= htmlspecialchars($produto['descricao']) ?></textarea><br><br>
-
-        <label for="imagem">Imagem:</label><br>
-        <input type="file" name="imagem" accept="image/*"><br><br>
-        
-        <input type="submit" value="Atualizar">
-    </form>
-
-    <br>
-    <a href="index.php">Voltar</a>
 </body>
 </html>

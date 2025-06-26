@@ -3,32 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Nós - Lorem Ipsum Areias</title>
+    <title>Sobre Nós - Mineração Areias</title>
     <link rel="stylesheet" href="../assets/css/sobre.css">
 </head>
 <body>
-    <div class="top-bar">
-        <div class="container">
-            <div class="top-bar-content">
-                <div class="top-bar-contact">
-                    <span>HORÁRIO DE ATENDIMENTO</span>
-                    <a href="tel:+551112345678">(11) 1234-5678</a>
-                    <a href="mailto:contato@loremipsum.com">contato@loremipsum.com</a>
-                </div>
-                <div class="top-bar-social">
-                    <a href="#">FB</a>
-                    <a href="#">IG</a>
-                </div>
-            </div>
-        </div>
-    </div>
     
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">
-                    [LOGO AQUI]
-                </div>
+                    <img class="logo" src="../assets/Repositorio_de_Fotos/logo.png">
                 <nav>
                     <ul>
                         <li><a href="../../index.php">Home</a></li>
@@ -54,24 +37,18 @@
             <h2>Nossa História</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim.</p>
-                    <p>Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam.</p>
-                    <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet.</p>
+                    <p>Fundada com o compromisso de fornecer materiais de qualidade e respeitar os mais altos padrões ambientais, nossa empresa atua no setor de mineração de areias com responsabilidade e excelência. Ao longo dos anos, consolidamos nossa presença no mercado por meio da extração sustentável e do fornecimento confiável de areia para construção civil, infraestrutura, indústria e diversos outros segmentos.</p>
+                    <p>Com uma jazida estrategicamente localizada e equipada com tecnologia de ponta, garantimos eficiência nos processos de extração, beneficiamento e distribuição. Nosso time é formado por profissionais experientes e comprometidos com a segurança, a qualidade e a transparência em todas as etapas da operação.</p>
                 </div>
-                <div class="about-image">
-                    [IMAGEM DA EMPRESA]
-                </div>
+                    <img class="about-image" src="../assets/Repositorio_de_Fotos/historia.png">
             </div>
             
             <h2>Nossa Missão</h2>
             <div class="about-content">
-                <div class="about-image">
-                    [IMAGEM DA MISSÃO]
-                </div>
+                <img class="about-image" src="../assets/Repositorio_de_Fotos/missao.png">
                 <div class="about-text">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim.</p>
-                    <p>Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam.</p>
-                    <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet.</p>
+                    <p>Nossa missão é extrair e fornecer areia de forma segura, eficiente e sustentável, atendendo às necessidades dos nossos clientes com qualidade, agilidade e respeito ao meio ambiente. Trabalhamos diariamente para equilibrar o desenvolvimento econômico com a preservação dos recursos naturais, contribuindo para a construção de um futuro mais sólido e responsável.</p>
+                    <p>Prezamos por relações de confiança com nossos parceiros, clientes e comunidades, promovendo um crescimento conjunto e duradouro.</p>
                 </div>
             </div>
         </div>
@@ -105,31 +82,73 @@
             <h2>Nossa Equipe</h2>
             <div class="team-grid">
                 <div class="team-member">
-                    <div class="team-photo">
-                        [FOTO]
-                    </div>
-                    <div class="team-name">Lorem Ipsum</div>
+                    <img class="team-photo" src="../assets/Repositorio_de_Fotos/gustavo.png">
+                    <div class="team-name">Gustavo Henrique</div>
                     <div class="team-position">CEO</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>
+                    <p>Especialista em criar reuniões desnecessárias e parecer ocupado o tempo todo.</p>
                 </div>
                 <div class="team-member">
-                    <div class="team-photo">
-                        [FOTO]
-                    </div>
-                    <div class="team-name">Dolor Sit</div>
+                    <img class="team-photo" src="../assets/Repositorio_de_Fotos/hiago.png">
+                    <div class="team-name">Hiago da Rocha</div>
                     <div class="team-position">Diretor Técnico</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>
+                    <p>Mestre em transformar café em códigos que nunca funcionam direito.</p>
                 </div>
                 <div class="team-member">
-                    <div class="team-photo">
-                        [FOTO]
-                    </div>
-                    <div class="team-name">Amet Consectetur</div>
+                    <img class="team-photo" src="../assets/Repositorio_de_Fotos/gabriel.png">
+                    <div class="team-name">Gabriel Milego</div>
                     <div class="team-position">Gerente de Operações</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>
+                    <p>Sempre aparece nas reuniões, mas ninguém nunca viu ele trabalhando.</p>
                 </div>
                 <div class="team-member">
-                    <div class="team-photo">
-                        [FOTO]
-                    </div>
-                    <div class="team-name">Adipiscing Elit</div
+                    <img class="team-photo" src="../assets/Repositorio_de_Fotos/mascote.png">
+                    <div class="team-name">Rex</div>
+                    <div class="team-position">Mascote</div>
+                    <p>Late em cinco idiomas, sempre pronto para alegrar o ambiente e trazer boas energias!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                <img class="logo" src="../assets/Repositorio_de_Fotos/logo.png">
+                </div>
+                <div class="footer-column">
+                    <h3>Matriz</h3>
+                    <p>Av. Lorem Ipsum, n° 123</p>
+                    <p>Bairro Lorem - Cidade Ipsum - SP</p>
+                    <p>CEP 12345-678</p>
+                    <p>mineracaophp@gmail.com</p>
+                    <p>(11) 1234-5678</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Filiais</h3>
+                    <p>Av. Lorem Ipsum, n° 456</p>
+                    <p>Bairro Lorem - Cidade Ipsum - SP</p>
+                    <p>CEP 12345-678</p>
+                    <p>filial@loremipsum.com</p>
+                    <p>(11) 8765-4321</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Departamentos</h3>
+                    <p>São Paulo: (11) 1234-5678</p>
+                    <p>Rio de Janeiro: (21) 1234-5678</p>
+                    <p>Vendas: (11) 8765-4321</p>
+                    <p>WhatsApp: (11) 98765-4321</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <div class="bottom-footer">
+        <div class="container">
+            <div class="bottom-footer-content">
+                <div>© 2025 Lorem Ipsum Areias. Todos os direitos reservados.</div>
+                <div>Desenvolvido por <a href="#">Lorem Ipsum Desenvolvimento</a></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

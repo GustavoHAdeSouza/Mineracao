@@ -18,7 +18,6 @@ services:
       - ./Backend:/var/www/html/Backend
       - ./Frontend:/var/www/html/Frontend
       - ./login-admin.php:/var/www/html/login-admin.php
-      - ./index-admin.php:/var/www/html/index-admin.php
       - ./index.php:/var/www/html/index.php
     depends_on:
       mysql:

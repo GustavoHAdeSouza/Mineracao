@@ -12,7 +12,7 @@ require_once __DIR__ . '../../../../Backend/php/keycloak-config.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administração - Lorem Ipsum Areias</title>
+    <title>Administração - Mineração Areias</title>
     <link rel="stylesheet" href="../../assets/css/admin.css">
 </head>
 <body>
@@ -24,37 +24,20 @@ require_once __DIR__ . '../../../../Backend/php/keycloak-config.php';
         }
     }
     </script>
-
-    <div class="top-bar">
-        <div class="container">
-            <div class="top-bar-content">
-                <div class="top-bar-contact">
-                    <span>HORÁRIO DE ATENDIMENTO</span>
-                    <a href="tel:+551112345678">(11) 1234-5678</a>
-                    <a href="mailto:contato@loremipsum.com">contato@loremipsum.com</a>
-                </div>
-                <div class="top-bar-social">
-                    <a href="#">FB</a>
-                    <a href="#">IG</a>
-                </div>
-            </div>
-        </div>
-    </div>
     
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">
-                    [LOGO AQUI]
+                <div>
+                        <img class="logo" src="../../assets/Repositorio_de_Fotos/logo.png">
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="../../index.html">Home</a></li>
-                        <li><a href="./sobre.html">Sobre nós</a></li>
-                        <li><a href="./servicos.html">Serviços</a></li>
-                        <li><a href="./noticias.html">Notícias</a></li>
-                        <li><a href="./contatos.html">Contatos</a></li>
-                        <li><a href="./admin.html" style="color: #90ee90;">Admin</a></li>
+                        <li><a href="../../../index.php">Home</a></li>
+                        <li><a href="../../pages/sobre.php">Sobre nós</a></li>
+                        <li><a href="../../pages/servicos.php">Serviços</a></li>
+                        <li><a href="../../pages/noticias.php">Notícias</a></li>
+                        <li><a href="../../pages/contatos.php">Contatos</a></li>
                         <li><a style="cursor:pointer" onclick="logout()">Sair</a></li>
                     </ul>
                     <button class="mobile-menu-btn">≡</button>
@@ -66,7 +49,7 @@ require_once __DIR__ . '../../../../Backend/php/keycloak-config.php';
     <div class="admin-header">
         <div class="container">
             <h1 class="admin-title">Painel Administrativo</h1>
-            <h2>Gestão de Estoque e Preços</h2>
+            <h2>Gestão</h2>
         </div>
     </div>
             
@@ -147,50 +130,5 @@ require_once __DIR__ . '../../../../Backend/php/keycloak-config.php';
     </div>
 </div>
 
-
-    
-    
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <div class="logo">
-                        [LOGO AQUI]
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3>Matriz</h3>
-                    <p>Av. Lorem Ipsum, n° 123</p>
-                    <p>Bairro Lorem - Cidade Ipsum - SP</p>
-                    <p>CEP 12345-678</p>
-                    <p>contato@loremipsum.com</p>
-                    <p>(11) 1234-5678</p>
-                </div>
-                <div class="footer-column">
-                    <h3>Filiais</h3>
-                    <p>Av. Lorem Ipsum, n° 456</p>
-                    <p>Bairro Lorem - Cidade Ipsum - SP</p>
-                    <p>CEP 12345-678</p>
-                    <p>filial@loremipsum.com</p>
-                    <p>(11) 8765-4321</p>
-                </div>
-                <div class="footer-column">
-                    <h3>Departamentos</h3>
-                    <p>São Paulo: (11) 1234-5678</p>
-                    <p>Rio de Janeiro: (21) 1234-5678</p>
-                    <p>Vendas: (11) 8765-4321</p>
-                    <p>WhatsApp: (11) 98765-4321</p
-                </div>
-            </div>
-        </div>
-    </footer>   
-    div class="bottom-footer">
-        <div class="container">
-            <div class="bottom-footer-content">
-                <div>© 2025 Lorem Ipsum Areias. Todos os direitos reservados.</div>
-                <div>Desenvolvido por <a href="#">Lorem Ipsum Desenvolvimento</a></div>
-            </div>
-        </div>
-    </div>
 </body>
 </html>

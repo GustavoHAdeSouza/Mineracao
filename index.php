@@ -9,32 +9,17 @@ require_once __DIR__ . '/Backend/php/index.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lorem Ipsum - Areias</title>
+    <title>Mineração - Areias</title>
     <link rel="stylesheet" href="./Frontend/assets/css/index.css">
 </head>
 <body>
     <script src="./Frontend/assets/js/index.js"></script>
-    <div class="top-bar">
-        <div class="container">
-            <div class="top-bar-content">
-                <div class="top-bar-contact">
-                    <span>HORÁRIO DE ATENDIMENTO</span>
-                    <a href="tel:+551112345678">(11) 1234-5678</a>
-                    <a href="mailto:contato@loremipsum.com">contato@loremipsum.com</a>
-                </div>
-                <div class="top-bar-social">
-                    <a href="#">FB</a>
-                    <a href="#">IG</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    
+
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">
-                    [LOGO AQUI]
+                <div>
+                        <img class="logo" src="./Frontend/assets/Repositorio_de_Fotos/logo.png">
                 </div>
                 <nav>
                     <ul>
@@ -53,9 +38,9 @@ require_once __DIR__ . '/Backend/php/index.php';
     <div class="banner">
         <div class="container">
             <div class="banner-content">
-                <h1>Lorem Ipsum Areias</h1>
-                <h2>Uma das maiores fornecedoras de areia do estado de Lorem Ipsum</h2>
-                <a href="#" class="btn">Saiba mais</a>
+                <h1>Mineração Areias</h1>
+                <h2>Uma das maiores fornecedoras de areia do estado do Rio Grande do Sul</h2>
+                <a href="./Frontend/pages/sobre.php" class="btn">Saiba mais</a>
             </div>
         </div>
     </div>
@@ -121,16 +106,14 @@ require_once __DIR__ . '/Backend/php/index.php';
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-column">
-                    <div class="logo">
-                        [LOGO AQUI]
-                    </div>
+                    <img class="logo" src="./Frontend/assets/Repositorio_de_Fotos/logo.png">
                 </div>
                 <div class="footer-column">
                     <h3>Matriz</h3>
                     <p>Av. Lorem Ipsum, n° 123</p>
                     <p>Bairro Lorem - Cidade Ipsum - SP</p>
                     <p>CEP 12345-678</p>
-                    <p>contato@loremipsum.com</p>
+                    <p>mineracaophp@gmail.com</p>
                     <p>(11) 1234-5678</p>
                 </div>
                 <div class="footer-column">

@@ -8,28 +8,11 @@
 
 </head>
 <body>
-    <div class="top-bar">
-        <div class="container">
-            <div class="top-bar-content">
-                <div class="top-bar-contact">
-                    <span>HORÁRIO DE ATENDIMENTO</span>
-                    <a href="tel:+551112345678">(11) 1234-5678</a>
-                    <a href="mailto:contato@loremipsum.com">contato@loremipsum.com</a>
-                </div>
-                <div class="top-bar-social">
-                    <a href="#">FB</a>
-                    <a href="#">IG</a>
-                </div>
-            </div>
-        </div>
-    </div>
     
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">
-                    [LOGO AQUI]
-                </div>
+                    <img class="logo" src="../assets/Repositorio_de_Fotos/logo.png">
                 <nav>
                     <ul>
                         <li><a href="../../index.php">Home</a></li>
@@ -59,7 +42,7 @@
                         <p><strong>Endereço:</strong> Av. Lorem Ipsum, 123 - Bairro Ipsum</p>
                         <p><strong>Telefone:</strong> (11) 1234-5678</p>
                         <p><strong>WhatsApp:</strong> (11) 98765-4321</p>
-                        <p><strong>E-mail:</strong> contato@loremipsum.com</p>
+                        <p><strong>E-mail:</strong> mineracaophp@gmail.com</p>
                         <p><strong>Horário de Atendimento:</strong> Segunda a Sexta, 08:00 - 18:00</p>
                     </div>
                     
@@ -108,10 +91,7 @@
     <section class="map-section">
         <div class="container">
             <h2 style="text-align: center; margin-bottom: 20px; color: #003366;">Nossa Localização</h2>
-            <div class="map-container">
-                [MAPA]
-                <p>Local do Mapa</p>
-            </div>
+                <iframe class="map-container" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.364812834814!2d-51.22377332444689!3d-30.0263900749327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951979082a86e831%3A0x9b4615117c97cf33!2sInstituto%20Federal%20de%20Educa%C3%A7%C3%A3o%2C%20Ci%C3%AAncia%20e%20Tecnologia%20do%20Rio%20Grande%20do%20Sul%20-%20Campus%20Porto%20Alegre!5e0!3m2!1spt-BR!2sbr!4v1750899458380!5m2!1spt-BR!2sbr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
     
@@ -119,16 +99,14 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-column">
-                    <div class="logo">
-                        [LOGO AQUI]
-                    </div>
+                <img class="logo" src="../assets/Repositorio_de_Fotos/logo.png">
                 </div>
                 <div class="footer-column">
                     <h3>Matriz</h3>
                     <p>Av. Lorem Ipsum, n° 123</p>
                     <p>Bairro Lorem - Cidade Ipsum - SP</p>
                     <p>CEP 12345-678</p>
-                    <p>contato@loremipsum.com</p>
+                    <p>mineracaophp@gmail.com</p>
                     <p>(11) 1234-5678</p>
                 </div>
                 <div class="footer-column">

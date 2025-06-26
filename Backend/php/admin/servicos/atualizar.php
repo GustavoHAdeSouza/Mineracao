@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             die("Extensão não permitida.");
         }
 
-        if ($_FILES['imagem']['size'] > 2 * 1024 * 1024) {
+        if ($_FILES['imagem']['size'] > 10 * 1024 * 1024) {
             die("Imagem muito grande. Máximo 2MB.");
         }
 
